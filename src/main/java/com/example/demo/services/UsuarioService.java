@@ -14,6 +14,8 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
     
+    
+
     public ArrayList<UsuarioModel> obtenerUsuarios(){
         return (ArrayList<UsuarioModel>) usuarioRepository.findAll();
     }
@@ -26,6 +28,9 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
+    public UsuarioModel obtenerUsuarioByEmail(String email){
+        return usuarioRepository.findByEmail(email);
+    }
     /*
     public ArrayList<UsuarioModel>  obtenerPorPrioridad(Integer prioridad) {
         return usuarioRepository.findByPrioridad(prioridad);
