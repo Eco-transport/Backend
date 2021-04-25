@@ -17,7 +17,7 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "http://localhost:7000")
     @PostMapping("/checkLogin")
     public Boolean checkLogin(@RequestBody LoginModel login){
         if(login == null)
@@ -34,6 +34,7 @@ public class UsuarioController {
         return usuarioService.obtenerUsuarios();
     }
 
+    @CrossOrigin(origins = "http://localhost:7000")
     @PostMapping("/guardar")
     public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario){
         return this.usuarioService.guardarUsuario(usuario);

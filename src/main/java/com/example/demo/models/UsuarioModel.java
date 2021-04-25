@@ -11,12 +11,14 @@ public class UsuarioModel {
     @Column(unique = true, nullable = false)
     private Long id;
 
-    private Integer cedula;
+    private String cedula;
     private String nombre;
     private String email;
-    private String contrasena;
-    private Integer celular;
-    private Boolean activo;
+    private String celular;
+    private String pregunta;
+	private String respuesta;
+	private String contrasena;
+	private Boolean activo;
 
 	public Long getId() {
 		return this.id;
@@ -26,11 +28,11 @@ public class UsuarioModel {
 		this.id = id;
 	}
 
-	public Integer getCedula() {
+	public String getCedula() {
 		return this.cedula;
 	}
 
-	public void setCedula(Integer cedula) {
+	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
 
@@ -50,20 +52,36 @@ public class UsuarioModel {
 		this.email = email;
 	}
 
+	public String getCelular() {
+		return this.celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getPregunta() {
+		return this.pregunta;
+	}
+
+	public void setPregunta(String pregunta) {
+		this.pregunta = pregunta;
+	}
+
+	public String getRespuesta() {
+		return this.respuesta;
+	}
+
+	public void setRespuesta(String respuesta) {
+		this.respuesta = respuesta;
+	}
+
 	public String getContrasena() {
 		return this.contrasena;
 	}
 
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
-	}
-
-	public Integer getCelular() {
-		return this.celular;
-	}
-
-	public void setCelular(Integer celular) {
-		this.celular = celular;
 	}
 
 	public Boolean getActivo() {
@@ -73,4 +91,6 @@ public class UsuarioModel {
 	public void setActivo(Boolean activo) {
 		this.activo = activo;
 	}
+
+
 }

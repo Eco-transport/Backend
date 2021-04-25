@@ -21,7 +21,8 @@ public class EstacionController {
         return estacionService.obtenerEstaciones();
     }
 
-    @PostMapping()
+    @CrossOrigin(origins = "http://localhost:7000")
+    @PostMapping("/guardar")
     public EstacionModel guardarEstacion(@RequestBody EstacionModel estacion){
         return this.estacionService.guardarEstacion(estacion);
     }

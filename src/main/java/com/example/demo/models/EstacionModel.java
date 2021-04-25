@@ -15,6 +15,10 @@ public class EstacionModel {
 	private String direccion;
 	private Integer telefono;
 	private Integer totalVehiculos;
+	
+
+	
+
 
 	public Long getIdEstacion() {
 		return this.idEstacion;
