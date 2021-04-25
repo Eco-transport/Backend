@@ -16,6 +16,7 @@ public class EstacionController {
     @Autowired
     EstacionService estacionService;
 
+    @CrossOrigin(origins = "http://localhost:7000")
     @GetMapping()
     public ArrayList<EstacionModel> obtenerEstaciones(){
         return estacionService.obtenerEstaciones();
