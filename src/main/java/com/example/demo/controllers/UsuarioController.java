@@ -29,6 +29,19 @@ public class UsuarioController {
         return false;
     }
 
+    @PostMapping("/securityQuestion")
+    public String securityQuestion(@RequestBody String usuario){
+        String retorno = "";
+        if(usuario == null){
+            retorno = "Correo electronico no valido";
+        }else{
+            if(usuario.equals(this.obtenerUsuarioByEmail(usuario).getEmail())){
+                return this.obtenerUsuarioByEmail(usuario).getPregunta();
+            }
+        }
+        return retorno;
+    }
+
     @GetMapping("/obtener")
     public ArrayList<UsuarioModel> obtenerUsuarios(){
         return usuarioService.obtenerUsuarios();
