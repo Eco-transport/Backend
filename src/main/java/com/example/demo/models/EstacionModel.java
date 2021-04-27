@@ -13,7 +13,16 @@ public class EstacionModel {
 
 	private String nombre;
 	private String direccion;
-	private Integer telefono;
+	private String telefono;
+
+	public String getTelefono() {
+		return this.telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
 	private Integer totalVehiculos;
 	
 
@@ -44,13 +53,6 @@ public class EstacionModel {
 		this.direccion = direccion;
 	}
 
-	public Integer getTelefono() {
-		return this.telefono;
-	}
-
-	public void setTelefono(Integer telefono) {
-		this.telefono = telefono;
-	}
 
 	public Integer getTotalVehiculos() {
 		return this.totalVehiculos;

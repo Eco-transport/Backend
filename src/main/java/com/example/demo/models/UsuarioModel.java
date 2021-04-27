@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import javax.persistence.*;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name = "usuario")
@@ -18,6 +19,17 @@ public class UsuarioModel {
     private String pregunta;
 	private String respuesta;
 	private String contrasena;
+	@Value("Cliente")
+	private String rol;
+
+	public String getRol() {
+		return this.rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
 	private Boolean activo;
 
 	public Long getId() {

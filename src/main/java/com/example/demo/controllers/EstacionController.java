@@ -28,6 +28,7 @@ public class EstacionController {
         return this.estacionService.guardarEstacion(estacion);
     }
 
+    @CrossOrigin(origins = "http://localhost:7000")
     @GetMapping( path = "/{id}")
     public Optional<EstacionModel> obtenerEstacionPorId(@PathVariable("id") Long id) {
         return this.estacionService.obtenerPorId(id);
@@ -51,6 +52,7 @@ public class EstacionController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:7000")
     @DeleteMapping( path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
         boolean ok = this.estacionService.eliminarEstacion(id);

@@ -9,6 +9,7 @@ public class LoginModel {
     private String email;
     private String contrasena;
 
+
 	public String getEmail() {
 		return this.email;
 	}

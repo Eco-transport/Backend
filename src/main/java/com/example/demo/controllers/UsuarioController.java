@@ -24,9 +24,17 @@ public class UsuarioController {
             return false;
         if(login.getEmail().equals(this.obtenerUsuarioByEmail(login.getEmail()).getEmail()) 
             && login.getContrasena().equals(this.obtenerUsuarioByEmail(login.getEmail()).getContrasena()))
-            return true;
-        //if(login.getEmail().equals(anObject))
+            return true;        
         return false;
+    }
+    @CrossOrigin(origins = "http://localhost:7000")
+    @PostMapping("/email")
+    public UsuarioModel afterLogin(@RequestBody LoginModel login){
+        return this.usuarioService.obtenerUsuarioByEmail(login.getEmail());
+    }
+
+    public void afterCheckLogin(){
+
     }
 
     @GetMapping("/obtener")
@@ -40,15 +48,20 @@ public class UsuarioController {
         return this.usuarioService.guardarUsuario(usuario);
     }
 
+    
     @GetMapping( path = "/{id}")
     public Optional<UsuarioModel> obtenerUsuarioPorId(@PathVariable("id") Long id) {
         return this.usuarioService.obtenerPorId(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:7000")
     @GetMapping("/query")
     public UsuarioModel obtenerUsuarioByEmail(String email){
         return this.usuarioService.obtenerUsuarioByEmail(email);
     }
+    
+    
+
     /* este query se usa con el requestParam para usarlo desde el URL
      Es decir http://localhost:8080/API/usuario/query?email=juanito@gmail.com
     @GetMapping("/query")
