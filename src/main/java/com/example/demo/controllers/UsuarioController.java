@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import com.example.demo.models.ForgotPasswordModel;
 import com.example.demo.models.LoginModel;
 import com.example.demo.models.UsuarioModel;
 import com.example.demo.services.UsuarioService;
@@ -35,6 +36,35 @@ public class UsuarioController {
 
     public void afterCheckLogin(){
 
+    }
+
+    @CrossOrigin(origins = "http://localhost:7000")
+    @PostMapping("/securityQuestion")
+    public String securityQuestion(@RequestBody String usuario){
+        String retorno = "";
+        if(usuario == null){
+            retorno = "Correo electronico no valido";
+        }else{
+            retorno = "SIRVE";     //COMENTAR PARA PRUEBAS REALES
+            /*if(usuario.equals(this.obtenerUsuarioByEmail(usuario).getEmail())){
+                retorno = this.obtenerUsuarioByEmail(usuario).getPregunta();         //DESCOMENTAR PARA PRUEBAS REALES
+            }*/
+        }
+        return retorno;
+    }
+
+    @CrossOrigin(origins = "http://localhost:7000")
+    @PostMapping("/securityAnswer")
+    public Boolean securityAnswer(@RequestBody ForgotPasswordModel forgot){
+        if(forgot == null){
+            return false;
+        }else{
+            /*if(forgot.getEmail().equals(this.obtenerUsuarioByEmail(forgot.getEmail()).getEmail()) 
+            && forgot.getRespuesta().equals(this.obtenerUsuarioByEmail(forgot.getEmail()).getRespuesta())){   //DESCOMENTAR PARA PRUEBAS REALES
+                return true;
+            }*/
+        }
+        return true;   //PONER EN FALSE PARA PRUEBAS REALES
     }
 
     @GetMapping("/obtener")
