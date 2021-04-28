@@ -3,9 +3,7 @@ package com.example.demo.controllers;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.example.demo.models.ForgotPasswordModel;
-import com.example.demo.models.LoginModel;
-import com.example.demo.models.UsuarioModel;
+import com.example.demo.models.*;
 import com.example.demo.services.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,31 +38,22 @@ public class UsuarioController {
 
     @CrossOrigin(origins = "http://localhost:7000")
     @PostMapping("/securityQuestion")
-    public String securityQuestion(@RequestBody String usuario){
-        String retorno = "";
-        if(usuario == null){
-            retorno = "Correo electronico no valido";
-        }else{
-            retorno = "SIRVE";     //COMENTAR PARA PRUEBAS REALES
-            /*if(usuario.equals(this.obtenerUsuarioByEmail(usuario).getEmail())){
-                retorno = this.obtenerUsuarioByEmail(usuario).getPregunta();         //DESCOMENTAR PARA PRUEBAS REALES
-            }*/
+    public String securityQuestion(@RequestBody SecMode usuario){
+        String pregunta = "";
+        if(usuario.getEmail().equals(this.usuarioService.obtenerUsuarioByEmail(usuario.getEmail()).getEmail())){
+            pregunta = this.usuarioService.obtenerUsuarioByEmail(usuario.getEmail()).getPregunta();
         }
-        return retorno;
+        return pregunta;
     }
 
     @CrossOrigin(origins = "http://localhost:7000")
     @PostMapping("/securityAnswer")
     public Boolean securityAnswer(@RequestBody ForgotPasswordModel forgot){
-        if(forgot == null){
-            return false;
-        }else{
-            /*if(forgot.getEmail().equals(this.obtenerUsuarioByEmail(forgot.getEmail()).getEmail()) 
-            && forgot.getRespuesta().equals(this.obtenerUsuarioByEmail(forgot.getEmail()).getRespuesta())){   //DESCOMENTAR PARA PRUEBAS REALES
-                return true;
-            }*/
+        if(forgot.getEmail().equals(this.obtenerUsuarioByEmail(forgot.getEmail()).getEmail()) 
+        && forgot.getRespuesta().equals(this.obtenerUsuarioByEmail(forgot.getEmail()).getRespuesta())){   
+            return true;
         }
-        return true;   //PONER EN FALSE PARA PRUEBAS REALES
+        return false;   
     }
 
     @GetMapping("/obtener")
