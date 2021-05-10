@@ -6,8 +6,8 @@ import com.example.demo.models.EstacionModel;
 import java.util.*;
 
 @Entity
-@Table(name = "estacion")
-public class EstacionModel {
+@Table(name = "prestamo")
+public class PrestamoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

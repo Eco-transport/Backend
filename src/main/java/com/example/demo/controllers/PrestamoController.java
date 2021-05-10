@@ -19,7 +19,7 @@ public class PrestamoController {
     @CrossOrigin(origins = "http://localhost:7000")
     @GetMapping()
     public ArrayList<PrestamoModel> obtenerPrestamos(){
-        return prestamoService.obtenerPrestamos();
+        return prestamoService.obtenerPrestamo();
     }
 
     @CrossOrigin(origins = "http://localhost:7000")

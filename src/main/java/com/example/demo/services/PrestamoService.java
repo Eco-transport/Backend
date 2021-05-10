@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EstacionService {
+public class PrestamoService {
     @Autowired
     PrestamoRepository prestamoRepository;
     
@@ -29,7 +29,7 @@ public class EstacionService {
 
     public boolean eliminarTodasPrestamo(){
         try {
-            PrestamoRepository.deleteAll();
+            prestamoRepository.deleteAll();
             return true;
         } catch (Exception e) {
             return  false;
