@@ -11,7 +11,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     private static final String[] publicResources = new String[]{ "/registro/nuevo-usuario/rol/**", "/roles" };
     private static final String[] userResources = new String[]{ "/usuario/**", "/registro/nuevo-rol/**",
-            "/mis-roles", "/mis-cursos" };
+            "/mi-rol-id", "/mis-cursos" };
     private static final String[] adminResources = new String[]{ "/admin/**" };
     private static final String[] clientResources = new String[]{ "/cliente/**" };
 

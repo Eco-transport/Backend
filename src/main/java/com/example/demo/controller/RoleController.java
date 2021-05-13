@@ -22,14 +22,14 @@ public class RoleController{
         this.userService = userService;
     }
 
-    @GetMapping( "/mis-roles" )
-    public List<RolePOJO> getUserRoles( ){
+    @GetMapping( "/mi-rol-id" )
+    public Integer getUserRoles( ){
         String username = SecurityContextHolder.getContext( ).getAuthentication( ).getName( );
         List<RolePOJO> roles = new ArrayList<>( );
         for( Role role : userService.findByUsername( username ).getRoles( ) ){
             roles.add( new RolePOJO( role ) );
         }
-        return roles;
+        return roles.get(0).getId();
     }
 
     @GetMapping( value = { "/roles" } )
