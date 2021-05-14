@@ -24,6 +24,13 @@ INSERT INTO "bdEcotransport"."public"."bicycle" (bicycle_id, bicycle_name, bicyc
 ALTER SEQUENCE bicycle_bicycle_id_seq RESTART WITH 4;
 
 -- --------- --
+-- Order data --
+-- --------- --
+/* INSERT INTO "bdEcotransport"."public"."order" ()
+    VALUES (1, 'Yamaha 200 Watts', 'Yamaha', 50, 4752350),        
+ALTER SEQUENCE bicycle_bicycle_id_seq RESTART WITH 1; */
+
+-- --------- --
 -- User Data --
 -- --------- --
 INSERT INTO "bdEcotransport"."public"."user" (user_id, username, password, "names", surnames)

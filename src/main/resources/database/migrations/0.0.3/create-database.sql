@@ -64,6 +64,18 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."bicycle"
 );
 
 -- ---------------------------- --
+-- Table "bdEcotransport"."public"."order" --
+-- ---------------------------- --
+CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."order"
+(
+    "order_id"  SERIAL       NOT NULL,
+    "order_date"  TIMESTAMP       NOT NULL,
+    "order_status"  VARCHAR(25)       ,
+    "order_comments"  VARCHAR(255)       ,    
+    PRIMARY KEY ("order_id")
+);
+
+-- ---------------------------- --
 -- Table "bdEcotransport"."public"."role" --
 -- ---------------------------- --
 CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."role"
