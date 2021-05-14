@@ -37,6 +37,32 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."estacion"
 );
 
 
+
+-- ---------------------------- --
+-- Table "bdEcotransport"."public"."payment" --
+-- ---------------------------- --
+CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."payment"
+(
+    "payment_id"   INTEGER     NOT NULL,
+    "payment_type" VARCHAR(20) NOT NULL,
+    PRIMARY KEY ("payment_id")
+);
+
+-- ---------------------------- --
+-- Table "bdEcotransport"."public"."bicycle" --
+-- ---------------------------- --
+CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."bicycle"
+(
+    "bicycle_id"   INTEGER     NOT NULL,
+    "bicycle_name" VARCHAR(20) NOT NULL,
+    "bicycle_vendor" VARCHAR(20) NOT NULL,
+    "bicycle_stock"   INTEGER     NOT NULL,
+    "bicycle_buy_price"   FLOAT     NOT NULL,
+    
+    
+    PRIMARY KEY ("bicycle_id")
+);
+
 -- ---------------------------- --
 -- Table "bdEcotransport"."public"."role" --
 -- ---------------------------- --
@@ -46,6 +72,7 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."role"
     "role_name" VARCHAR(20) NOT NULL,
     PRIMARY KEY ("role_id")
 );
+
 
 
 -- --------------------------------- --

@@ -6,6 +6,24 @@ INSERT INTO "bdEcotransport"."public"."role" (role_id, role_name)
 
 
 -- --------- --
+-- Payment data --
+-- --------- --
+INSERT INTO "bdEcotransport"."public"."payment" (payment_id, payment_name)
+    VALUES (1, 'Efectivo'), 
+        (2, 'PSE');
+ALTER SEQUENCE payment_payment_id_seq RESTART WITH 3;
+
+
+-- --------- --
+-- Bicycle data --
+-- --------- --
+INSERT INTO "bdEcotransport"."public"."bicycle" (bicycle_id, bicycle_name, bicycle_vendor, bicycle_stock, bicycle_buy_price)
+    VALUES (1, 'Yamaha 200 Watts', 'Yamaha', 50, 4752350),
+        (2, 'Pichirila 150 Watts', 'Colombiana', 300, 2452350),
+        (3, 'BMW 500 Watts', 'BMW', 10, 7752350),
+ALTER SEQUENCE bicycle_bicycle_id_seq RESTART WITH 4;
+
+-- --------- --
 -- User Data --
 -- --------- --
 INSERT INTO "bdEcotransport"."public"."user" (user_id, username, password, "names", surnames)
@@ -34,18 +52,3 @@ INSERT INTO "bdEcotransport"."public"."estacion" (station_id, station_name,stati
 
 ALTER SEQUENCE estacion_station_id_seq RESTART WITH 4;
 
--- ---------------- --
--- Association Data --
--- ---------------- --
-/* INSERT INTO "bdEcotransport"."public"."association" (association_id, user_id, role_id, estacion_id)
-    VALUES (1, 1, 2, 1);
-INSERT INTO "bdEcotransport"."public"."association" (association_id, user_id, role_id, estacion_id)
-    VALUES (2, 2, 1, 1);
-INSERT INTO "bdEcotransport"."public"."association" (association_id, user_id, role_id, estacion_id)
-    VALUES (3, 3, 1, 1);
-INSERT INTO "bdEcotransport"."public"."association" (association_id, user_id, role_id, estacion_id)
-    VALUES (4, 5, 1, 2);
-INSERT INTO "bdEcotransport"."public"."association" (association_id, user_id, role_id, estacion_id)
-    VALUES (5, 4, 1, 2);
-INSERT INTO "bdEcotransport"."public"."association" (association_id, user_id, role_id, estacion_id)
-    VALUES (6, 3, 1, 2); */
