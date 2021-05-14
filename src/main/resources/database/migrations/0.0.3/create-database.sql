@@ -24,9 +24,16 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."user"
 -- ------------------------------ --
 CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."estacion"
 (
-    "estacion_id"      SERIAL       NOT NULL,
-    "estacion_name"    VARCHAR(100) NOT NULL,
-    PRIMARY KEY ("estacion_id")
+    "station_id"      SERIAL       NOT NULL,
+    "station_name"    VARCHAR(100) NOT NULL,
+    "station_address"  VARCHAR(100) NOT NULL,
+    "station_phone"     VARCHAR(100) NOT NULL,
+    "station_city"      VARCHAR(100) NOT NULL,
+    "station_available" INTEGER NOT NULL,
+    "station_inventory" INTEGER NOT NULL,
+    "station_open_time"     VARCHAR(100) NOT NULL,
+    "station_close_time"      VARCHAR(100) NOT NULL,
+    PRIMARY KEY ("station_id")
 );
 
 
@@ -67,7 +74,7 @@ CREATE INDEX "idx_user_role_role_id" ON "bdEcotransport"."public"."role" ("role_
 -- ----------------------------------- --
 -- Table "bdEcotransport"."public"."association" --
 -- ----------------------------------- --
-CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."association"
+/* CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."association"
 (
     "association_id" SERIAL NOT NULL,
     "user_id"        INT    NOT NULL,
@@ -87,5 +94,5 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."association"
 );
 CREATE INDEX "idx_association_user_role_id" ON "bdEcotransport"."public"."association" ("user_id" ASC, "role_id" ASC);
 CREATE INDEX "idx_association_Estacion_id" ON "bdEcotransport"."public"."association" ("estacion_id" ASC);
-
+ */
 

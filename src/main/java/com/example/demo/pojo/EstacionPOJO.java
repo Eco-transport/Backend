@@ -2,13 +2,13 @@ package com.example.demo.pojo;
 
 public class EstacionPOJO{
 
-    private String EstacionName;
+    private String stationName;
 
-    public String getEstacionName( ){
-        return EstacionName;
+    public String getStationName( ){
+        return stationName;
     }
 
-    public void setEstacionName( String EstacionName ){
-        this.EstacionName = EstacionName;
+    public void setStationName( String stationName ){
+        this.stationName = stationName;
     }
 }

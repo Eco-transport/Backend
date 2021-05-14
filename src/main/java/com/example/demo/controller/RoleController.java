@@ -4,23 +4,29 @@ import com.example.demo.model.*;
 import com.example.demo.pojo.*;
 import com.example.demo.service.*;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+/* import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController; */
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.*;//autowired
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
+
 
 @RestController
 public class RoleController{
 
-    private final RoleService roleService;
-    private final UserService userService;
+    @Autowired
+    RoleService roleService;
 
+    @Autowired
+    UserService userService;
 
-    public RoleController( RoleService roleService, UserService userService ){
+    
+    /* public RoleController( RoleService roleService, UserService userService ){
         this.roleService = roleService;
         this.userService = userService;
-    }
+    } */
 
     @GetMapping( "/mi-rol-id" )
     public Integer getUserRoles( ){

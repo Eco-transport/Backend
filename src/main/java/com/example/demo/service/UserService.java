@@ -4,16 +4,17 @@ import com.example.demo.model.*;
 import com.example.demo.pojo.*;
 import com.example.demo.repository.*;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.*;
 
 
 @Service
 public class UserService{
+    @Autowired
+    UserRepository userRepository;
 
-    private final UserRepository userRepository;
-
-    public UserService( UserRepository userRepository ){
+    /* public UserService( UserRepository userRepository ){
         this.userRepository = userRepository;
-    }
+    } */
 
 
     public User findByUsername( String username ){

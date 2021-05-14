@@ -11,17 +11,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import org.springframework.beans.factory.annotation.*;
 
 
 @RestController
 public class UserController{
-
+    
     private UserService userService;
-
+    
     private RoleService roleService;
-
+    
     private PasswordEncoder passwordEncoder;
 
+    
     public UserController( UserService userService, RoleService roleService, PasswordEncoder passwordEncoder ){
         this.userService = userService;
         this.roleService = roleService;
