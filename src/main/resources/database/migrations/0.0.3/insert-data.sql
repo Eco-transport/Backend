@@ -34,12 +34,12 @@ ALTER SEQUENCE bicycle_bicycle_id_seq RESTART WITH 1; */
 -- --------- --
 -- User Data --
 -- --------- --
-INSERT INTO "bdEcotransport"."public"."user" (user_id, username, password, "names", surnames)
-    VALUES (1, 'hlopezm', '$2a$10$WBrK1hLx2Go/alh38HuQdu4wW4P8pFo.rLcH7oskis9yKut77ZwDO', 'HUMBERTO', 'LÓPEZ MIRANDA'),
-        (2, 'spastore', '$2a$10$3Ai.b.v/SJtTEjJeOWgPLeoMhKyEUJb.uuK0tws310LQfKKQuN5JO', 'SALVADOR', 'PASTOR ESPINOZA'),
-        (3, 'rperezg', '$2a$10$lBpVDdvg7APyo/ozWmrb0el1y44eTqPv5quwK/Cf8ZcNl/TNzxG6W', 'TOMÁS', 'PÉREZ GIL'),
-        (4, 'jmendezs', '$2a$10$MuvQDfRNfbs/q00Q1YzBNeFd28/9QUML.vy1az6FoWYtZcXzuGCcK', 'JONATHAN', 'MÉNDEZ SOSA'),
-        (5, 'ntapiaa', '$2a$10$K5LjicrVUsLto0yyiSOxyeRSzPCSwQ424CacXk2LZuKE3guD/IVoK', 'NANCY', 'TAPIA ÁRIAS');
+INSERT INTO "bdEcotransport"."public"."user" (user_id, username, password, names, surnames, identity_number, email, user_phone, security_question, security_answer, user_state)
+    VALUES (1, 'hlopezm', '$2a$10$WBrK1hLx2Go/alh38HuQdu4wW4P8pFo.rLcH7oskis9yKut77ZwDO', 'HUMBERTO', 'LÓPEZ MIRANDA', '1070988436', 'humberto@gmail.com', '3194653015', '¿Nombre de su madre?', 'Sandra', 'ACTIVO'),
+        (2, 'spastore', '$2a$10$3Ai.b.v/SJtTEjJeOWgPLeoMhKyEUJb.uuK0tws310LQfKKQuN5JO', 'SALVADOR', 'PASTOR ESPINOZA', '1070988437', 'salvador@gmail.com', '3194653016', '¿Primer vehiculo que compró?', 'Chevrolet', 'ACTIVO'),
+        (3, 'rperezg', '$2a$10$lBpVDdvg7APyo/ozWmrb0el1y44eTqPv5quwK/Cf8ZcNl/TNzxG6W', 'TOMÁS', 'PÉREZ GIL', '1070988438', 'tomas@gmail.com', '3194653017', '¿Nombre de su madre?', 'Juana', 'ACTIVO'),
+        (4, 'jmendezs', '$2a$10$MuvQDfRNfbs/q00Q1YzBNeFd28/9QUML.vy1az6FoWYtZcXzuGCcK', 'JONATHAN', 'MÉNDEZ SOSA', '1070988439', 'jonatan@gmail.com', '3194653018', '¿Primer vehiculo que compró?', 'Renault', 'ACTIVO'),
+        (5, 'ntapiaa', '$2a$10$K5LjicrVUsLto0yyiSOxyeRSzPCSwQ424CacXk2LZuKE3guD/IVoK', 'NANCY', 'TAPIA ÁRIAS', '1070988445', 'nancy@gmail.com', '3194653019', '¿Nombre de su madre?', 'Nidia', 'ACTIVO');
 ALTER SEQUENCE user_user_id_seq RESTART WITH 6;
 
 -- -------------- --

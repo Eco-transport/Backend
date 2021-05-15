@@ -25,12 +25,115 @@ public class User implements Serializable{
     private Integer id;
 
     private String names;
-
     private String password;
-
     private String surnames;
-
     private String username;
+
+    @Column( name = "identity_number" )
+    private String identityNumber;
+    private String email;
+
+    @Column( name = "user_phone" )
+    private String userPhone;
+
+    @Column( name = "security_question" )
+    private String securityQuestion;
+
+    @Column( name = "security_answer" )
+    private String securityAnswer;
+
+    @Column( name = "user_state" )
+    private String userState;
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNames() {
+		return this.names;
+	}
+
+	public void setNames(String names) {
+		this.names = names;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getSurnames() {
+		return this.surnames;
+	}
+
+	public void setSurnames(String surnames) {
+		this.surnames = surnames;
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getIdentityNumber() {
+		return this.identityNumber;
+	}
+
+	public void setIdentityNumber(String identityNumber) {
+		this.identityNumber = identityNumber;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUserPhone() {
+		return this.userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
+	public String getSecurityQuestion() {
+		return this.securityQuestion;
+	}
+
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
+	}
+
+	public String getSecurityAnswer() {
+		return this.securityAnswer;
+	}
+
+	public void setSecurityAnswer(String securityAnswer) {
+		this.securityAnswer = securityAnswer;
+	}
+
+	public String getUserState() {
+		return this.userState;
+	}
+
+	public void setUserState(String userState) {
+		this.userState = userState;
+	}
+
+
 
     //bi-directional many-to-many association to Role
     @ManyToMany( fetch = FetchType.EAGER )
@@ -50,45 +153,7 @@ public class User implements Serializable{
      * Getters and Setters
      */
 
-    public Integer getId( ){
-        return this.id;
-    }
-
-    public void setId( Integer id ){
-        this.id = id;
-    }
-
-    public String getNames( ){
-        return this.names;
-    }
-
-    public void setNames( String names ){
-        this.names = names;
-    }
-
-    public String getPassword( ){
-        return this.password;
-    }
-
-    public void setPassword( String password ){
-        this.password = password;
-    }
-
-    public String getSurnames( ){
-        return this.surnames;
-    }
-
-    public void setSurnames( String surnames ){
-        this.surnames = surnames;
-    }
-
-    public String getUsername( ){
-        return this.username;
-    }
-
-    public void setUsername( String username ){
-        this.username = username;
-    }
+     
 
     public List<Role> getRoles( ){
         return this.roles;

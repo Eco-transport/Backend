@@ -15,6 +15,12 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."user"
     "password" VARCHAR(256) NOT NULL,
     "names"    VARCHAR(100) NOT NULL,
     "surnames" VARCHAR(100) NOT NULL,
+    "identity_number" VARCHAR(10) NOT NULL,
+    "email" VARCHAR(100) NOT NULL,
+    "user_phone" VARCHAR(10) NOT NULL,
+    "security_question" VARCHAR(100) NOT NULL,
+    "security_answer" VARCHAR(100) NOT NULL,
+    "user_state" VARCHAR(10) NOT NULL,
     PRIMARY KEY ("user_id")
 );
 

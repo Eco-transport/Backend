@@ -25,14 +25,21 @@ public class UserService{
         userRepository.save( user );
     }
 
-    public boolean isRightUser( RegisterUserPOJO user ){
+    public boolean isRightUser( User user ){
         boolean correctness = user.getNames( ) != null && user.getPassword( ) != null && user.getUsername( ) != null &&
-                user.getSurnames( ) != null;
+                user.getSurnames( ) != null && user.getIdentityNumber( ) != null && user.getEmail( ) != null && user.getUserPhone( ) != null
+                && user.getSecurityQuestion( ) != null && user.getSecurityAnswer( ) != null && user.getUserState() != null;
         if( correctness ){
             correctness = !user.getNames( ).trim( ).isEmpty( )
                     && !user.getPassword( ).trim( ).isEmpty( )
                     && !user.getUsername( ).trim( ).isEmpty( )
-                    && !user.getSurnames( ).trim( ).isEmpty( );
+                    && !user.getSurnames( ).trim( ).isEmpty( )
+                    && !user.getIdentityNumber().isEmpty( )
+                    && !user.getEmail().isEmpty( )
+                    && !user.getUserPhone().isEmpty( )
+                    && !user.getSecurityQuestion().isEmpty( )
+                    && !user.getSecurityAnswer().isEmpty( )
+                    && !user.getUserState().isEmpty( );
         }
         return correctness;
     }

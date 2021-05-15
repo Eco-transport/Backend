@@ -30,9 +30,9 @@ public class UserController{
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping( value = { "/registro/nuevo-usuario/rol/{roleId}" } )
-    public ResponseEntity<Void> registerNewUser( @PathVariable Integer roleId, @RequestBody RegisterUserPOJO userPOJO ){
-        Role role = roleService.findById( roleId );
+    @PostMapping( value = { "/registro/nuevo-usuario" } )
+    public ResponseEntity<Void> registerNewUser( @RequestBody User userPOJO ){
+        Role role = roleService.findById( 1 );
         User existingUser = userService.findByUsername( userPOJO.getUsername( ) );
         if( role == null || existingUser != null || !userService.isRightUser( userPOJO ) ){
             return new ResponseEntity<>( HttpStatus.BAD_REQUEST );
@@ -42,6 +42,12 @@ public class UserController{
         newUser.setSurnames( userPOJO.getSurnames( ).toUpperCase( ) );
         newUser.setUsername( userPOJO.getUsername( ).toLowerCase( ) );
         newUser.setPassword( passwordEncoder.encode( userPOJO.getPassword( ) ) );
+        newUser.setIdentityNumber( userPOJO.getIdentityNumber( ) );
+        newUser.setEmail( userPOJO.getEmail( ) );
+        newUser.setUserPhone( userPOJO.getUserPhone( ) );
+        newUser.setSecurityQuestion( userPOJO.getSecurityQuestion( ) );
+        newUser.setSecurityAnswer( userPOJO.getSecurityAnswer( ) );
+        newUser.setUserState( userPOJO.getUserState( ) );
         newUser.setRoles( Collections.singletonList( role ) );
         userService.save( newUser );
         return new ResponseEntity<>( HttpStatus.CREATED );
