@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."estacion"
 -- ---------------------------- --
 -- Table "bdEcotransport"."public"."payment" --
 -- ---------------------------- --
-CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."payment"
+/* CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."payment"
 (
     "payment_id"   INTEGER     NOT NULL,
     "payment_type" VARCHAR(20) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."order"
     "order_status"  VARCHAR(25)       ,
     "order_comments"  VARCHAR(255)       ,    
     PRIMARY KEY ("order_id")
-);
+); */
 
 -- ---------------------------- --
 -- Table "bdEcotransport"."public"."role" --
@@ -109,29 +109,4 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."user_role"
 CREATE INDEX "idx_user_role_user_id" ON "bdEcotransport"."public"."user" ("user_id" ASC);
 CREATE INDEX "idx_user_role_role_id" ON "bdEcotransport"."public"."role" ("role_id" ASC);
 
-
--- ----------------------------------- --
--- Table "bdEcotransport"."public"."association" --
--- ----------------------------------- --
-/* CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."association"
-(
-    "association_id" SERIAL NOT NULL,
-    "user_id"        INT    NOT NULL,
-    "role_id"        INT    NOT NULL,
-    "estacion_id"      INT    NOT NULL,
-    PRIMARY KEY ("association_id"),
-    CONSTRAINT "fk_user_role"
-        FOREIGN KEY ("user_id", "role_id")
-            REFERENCES "bdEcotransport"."public"."user_role" ("user_id", "role_id")
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION,
-    CONSTRAINT "fk_Estacion"
-        FOREIGN KEY ("estacion_id")
-            REFERENCES "bdEcotransport"."public"."estacion" ("estacion_id")
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION
-);
-CREATE INDEX "idx_association_user_role_id" ON "bdEcotransport"."public"."association" ("user_id" ASC, "role_id" ASC);
-CREATE INDEX "idx_association_Estacion_id" ON "bdEcotransport"."public"."association" ("estacion_id" ASC);
- */
 

@@ -8,6 +8,7 @@ INSERT INTO "bdEcotransport"."public"."role" (role_id, role_name)
 -- --------- --
 -- Payment data --
 -- --------- --
+/* 
 INSERT INTO "bdEcotransport"."public"."payment" (payment_id, payment_name)
     VALUES (1, 'Efectivo'), 
         (2, 'PSE');
@@ -21,7 +22,7 @@ INSERT INTO "bdEcotransport"."public"."bicycle" (bicycle_id, bicycle_name, bicyc
     VALUES (1, 'Yamaha 200 Watts', 'Yamaha', 50, 4752350),
         (2, 'Pichirila 150 Watts', 'Colombiana', 300, 2452350),
         (3, 'BMW 500 Watts', 'BMW', 10, 7752350),
-ALTER SEQUENCE bicycle_bicycle_id_seq RESTART WITH 4;
+ALTER SEQUENCE bicycle_bicycle_id_seq RESTART WITH 4; */
 
 -- --------- --
 -- Order data --

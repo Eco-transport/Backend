@@ -16,12 +16,12 @@ import org.springframework.beans.factory.annotation.*;
 
 @RestController
 public class UserController{
-    
-    private UserService userService;
-    
-    private RoleService roleService;
-    
-    private PasswordEncoder passwordEncoder;
+    @Autowired
+    UserService userService;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     
     public UserController( UserService userService, RoleService roleService, PasswordEncoder passwordEncoder ){
