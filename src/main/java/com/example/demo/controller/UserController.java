@@ -53,4 +53,31 @@ public class UserController{
         return new ResponseEntity<>( HttpStatus.CREATED );
     }
 
+    @GetMapping( path = "/recuperar-password/get-question/{username}")
+    public String recuperarPasswordByUsername(@PathVariable("username") String username) {
+        return this.userService.findByUsername(username).getSecurityQuestion();
+    }
+
+    @PostMapping( value = { "/recuperar-password/verificar" })
+    public Boolean recuperarPasswordVerificar( @RequestBody RecuperarPasswordPOJO passPOJO ) {
+        User usuario = new User(); 
+        Boolean resp = false;
+        usuario = this.userService.findByUsername(passPOJO.getUsername());
+        if(usuario.getSecurityAnswer().equals(passPOJO.getAnswer())){
+            resp = true;
+        }
+        return resp;
+    }
+
+    @PostMapping( value = { "/recuperar-password/cambiar" })
+    public Boolean recuperarPasswordCambiar( @RequestBody LoginUserPOJO userPOJO ) {
+        User update_user = new User(); 
+        Boolean resp = false;
+        update_user = this.userService.findByUsername(userPOJO.getUsername()); 
+        update_user.setPassword( passwordEncoder.encode(userPOJO.getPassword()) );
+        userService.save(update_user);
+        update_user = this.userService.findByUsername(userPOJO.getUsername()); 
+        return true;
+    }
+
 }
