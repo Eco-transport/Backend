@@ -29,8 +29,8 @@ public class OrderController {
         return this.orderService.saveOrder(order);
     }
 
-    @GetMapping( path = "/{id}")
-    public OrderModel findOrderById(@PathVariable("order_id") Integer id) {
+    @GetMapping( path = "/{orderId}")
+    public OrderModel findOrderById(@PathVariable("orderId") Integer id) {
         return this.orderService.findOrderById(id);
     }
 
