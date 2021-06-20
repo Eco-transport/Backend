@@ -1,2 +1,1 @@
-# Backend
-Implementación en Spring
+# labs-backend
