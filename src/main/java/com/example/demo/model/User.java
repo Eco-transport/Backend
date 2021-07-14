@@ -162,7 +162,12 @@ public class User implements Serializable{
     public User( ){
     }
 
-
+	public User(Integer id, String username, String name, String cedula){
+		this.id = id;
+		this.username = username;
+		this.names = name;
+		this.identityNumber = cedula;
+    }
 
 
 

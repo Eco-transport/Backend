@@ -26,7 +26,7 @@ public class Bicycle implements Serializable {
     @Column( name = "bicycle_status", nullable = false )
     private String bicycleStatus;
     @Column( name = "station_id", nullable = false )
-    private Integer stationID;
+    private Integer stationId;
 
 	
 
@@ -50,12 +50,12 @@ public class Bicycle implements Serializable {
      * Getters and setters
      */
 
-    public Integer getStationID() {
-		return this.stationID;
+    public Integer getStationId() {
+		return this.stationId;
 	}
 
-	public void setStationID(Integer stationID) {
-		this.stationID = stationID;
+	public void setStationId(Integer stationId) {
+		this.stationId = stationId;
 	}
 
     public Station getStation() {

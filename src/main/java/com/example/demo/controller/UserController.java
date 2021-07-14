@@ -23,12 +23,31 @@ public class UserController{
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    
+    // CONSTRUCTOR
     public UserController( UserService userService, RoleService roleService, PasswordEncoder passwordEncoder ){
         this.userService = userService;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
     }
+
+
+    //SPRINT 4 COMIENZA
+    @GetMapping( "/user/getUser" )
+    public User getUser( ){        
+        String username = SecurityContextHolder.getContext( )
+                            .getAuthentication( )
+                            .getName(); //getName return the username logged, this must be unique!!
+
+        User usuario = userService.findByUsername(username);
+        return new User(usuario.getId(), usuario.getNames(), usuario.getUsername(), usuario.getIdentityNumber());
+    }
+
+    //SPRINT 4 TERMINA
+
+
+
+
+
 
     @PostMapping( value = { "/registro/nuevo-usuario" } )
     public ResponseEntity<Void> registerNewUser( @RequestBody User userPOJO ){
