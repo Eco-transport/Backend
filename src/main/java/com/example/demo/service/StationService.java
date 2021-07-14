@@ -22,15 +22,15 @@ public class StationService{
     } */
 
     //LISTAR ESTACIONES
-    public ArrayList<StationModel> getStations(){
-        return (ArrayList<StationModel>) stationRepository.findAll();
+    public ArrayList<Station> getStations(){
+        return (ArrayList<Station>) stationRepository.findAll();
     }
     //GUARDAR
-    public StationModel saveStation( StationModel station ){
+    public Station saveStation( Station station ){
         return stationRepository.save( station );
     }
     //ENCONTRA POR ID
-    public StationModel findById( Integer id ){
+    public Station findById( Integer id ){
         return stationRepository.findById( id ).orElse( null );
     }
 

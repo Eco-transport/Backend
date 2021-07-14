@@ -27,25 +27,25 @@ public class StationController{
 
     
     @GetMapping()
-    public ArrayList<StationModel> getStations(){
+    public ArrayList<Station> getStations(){
         return this.stationService.getStations();
     }
     
     @PostMapping("/save")
-    public StationModel saveStation(@RequestBody StationModel station){
+    public Station saveStation(@RequestBody Station station){
         return this.stationService.saveStation(station);
     }
     
 
     
     @GetMapping( path = "/{id}")
-    public StationModel findStationById(@PathVariable("id") Integer id) {
+    public Station findStationById(@PathVariable("id") Integer id) {
         return this.stationService.findById(id);
     }
 
     /*
     @GetMapping("/query")
-    public ArrayList<UsuarioModel> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad){
+    public ArrayList<Usuario> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad){
         return this.usuarioService.obtenerPorPrioridad(prioridad);
     }
     */

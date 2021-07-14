@@ -15,36 +15,29 @@ import java.util.Objects;
 @Table(name = "bicycle")
 public class Bicycle implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * Attributes
-     */
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bicycle_id")
-    private Integer id;
-
-    @Column(name = "bicycle_name", nullable = false)
-    private String bicycleName;
-
+    private Integer id;   
     @Column(name = "bicycle_vendor", nullable = false)
     private String vendor;
+    @Column( name = "bicycle_serial", nullable = false )
+    private String bicycleSerial;    
+    @Column( name = "bicycle_status", nullable = false )
+    private String bicycleStatus;
+    @Column( name = "station_id", nullable = false )
+    private Integer stationID;
 
-    @Column(name = "bicycle_stock", nullable = false)
-    private Integer stock;
+	
 
-    @Column(name = "bicycle_buyprice", nullable = false)
-    private Integer buyPrice;
 
-    /**
-     * Relationships: bi-directional many-to-many association to Station
-     */
 
-    @ManyToMany(mappedBy = "bicycles")
-    @JsonIgnore
-    private List<StationModel> stations;
+    @ManyToOne(fetch = FetchType.LAZY)    
+    @JoinColumn(name= "station_id", insertable=false, updatable=false)
+    private Station station;
+
+	
+
 
     /**
      * Constructor
@@ -57,6 +50,25 @@ public class Bicycle implements Serializable {
      * Getters and setters
      */
 
+    public Integer getStationID() {
+		return this.stationID;
+	}
+
+	public void setStationID(Integer stationID) {
+		this.stationID = stationID;
+	}
+
+    public Station getStation() {
+		return this.station;
+	}
+
+	public void setStation(Station station) {
+		this.station = station;
+	}
+
+
+
+
     public Integer getId() {
         return id;
     }
@@ -65,13 +77,6 @@ public class Bicycle implements Serializable {
         this.id = id;
     }
 
-    public String getBicycleName() {
-        return bicycleName;
-    }
-
-    public void setBicycleName(String bicycleName) {
-        this.bicycleName = bicycleName;
-    }
 
     public String getVendor() {
         return vendor;
@@ -81,21 +86,8 @@ public class Bicycle implements Serializable {
         this.vendor = vendor;
     }
 
-    public Integer getStock() {
-        return stock;
-    }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
 
-    public Integer getBuyPrice() {
-        return buyPrice;
-    }
-
-    public void setBuyPrice(Integer buyPrice) {
-        this.buyPrice = buyPrice;
-    }
 
     /**
      * Methods
@@ -104,13 +96,12 @@ public class Bicycle implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Bicycle bicycle = (Bicycle) o;
-        return id.equals(bicycle.id) && bicycleName.equals(bicycle.bicycleName) && vendor.equals(bicycle.vendor) && buyPrice.equals(bicycle.buyPrice);
+        if (!(o instanceof Bicycle )) return false;
+        return id != null && id.equals(((Bicycle) o).getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, bicycleName, vendor, buyPrice);
+        return getClass().hashCode();
     }
 }

@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EntityScan("com.example.demo.model") // path of the entity model
 @EnableJpaRepositories("com.example.demo.controller") // path of jpa repository  */
 @SpringBootApplication
-public class LabsApplication{
+public class EcotransportApplication{
 
     public static void main( String[] args ){
-        SpringApplication.run( LabsApplication.class );
+        SpringApplication.run( EcotransportApplication.class );
     }
 
 }

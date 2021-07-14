@@ -3,25 +3,16 @@ package com.example.demo.model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-/**
- * The persistent class for the Estacion database table.
- */
 @Entity
-@Table( name = "estacion", schema = "public" )
-public class StationModel implements Serializable{
+@Table( name = "station", schema = "public" )
+public class Station implements Serializable{
 
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * Attributes
-     */
-
+    
     @Id
-    @SequenceGenerator( name = "ESTACION_ESTACIONID_GENERATOR",
-            sequenceName = "public.estacion_station_id_seq", allocationSize = 1 )
-    @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "ESTACION_ESTACIONID_GENERATOR" )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column( name = "station_id" )
     private Integer id;    
     
@@ -49,27 +40,52 @@ public class StationModel implements Serializable{
     @Column(name = "station_close_time", nullable = false)
     private String closeTime;
 
-	/**
-	 * Relationships: bi-directional many-to-many association to Bicycle
-	 *                  one-to-many association to User
-	 */
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "station_bicycle", joinColumns = {@JoinColumn(name = "station_id")},
-			inverseJoinColumns = {@JoinColumn(name = "bicycle_id")})
+	@JsonIgnore
+	@OneToMany(mappedBy="station", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Bicycle> bicycles;
+
+	@JsonIgnore
+	@OneToMany(mappedBy="station", cascade=CascadeType.ALL, orphanRemoval=true)
+	private List<Order> orders;
+
+	
+
+
+
+
 
 	/**
      * Constructors
      */
 
-    public StationModel( ){
+    public Station( ){
         // Default constructor is required
     }
 
     /**
      * Getters and Setters
      */
+
+	public List<Order> getOrders() {
+		return this.orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+	
+	public List<Bicycle> getBicycles() {
+		return this.bicycles;
+	}
+
+	public void setBicycles(List<Bicycle> bicycles) {
+		this.bicycles = bicycles;
+	}
+
+
+
+
 
     public Integer getId() {
 		return this.id;
@@ -149,14 +165,15 @@ public class StationModel implements Serializable{
      * Methods
      */
 
-    /* @Override
-    public boolean equals( Object object ){
-        if( !(object instanceof Estacion) ) return false;
-        return id.equals( ((Estacion) object).getId( ) );
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Station )) return false;
+        return id != null && id.equals(((Station) o).getId());
     }
 
     @Override
-    public int hashCode( ){
-        return id;
-    } */
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

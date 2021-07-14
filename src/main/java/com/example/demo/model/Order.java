@@ -13,14 +13,9 @@ import java.util.Objects;
 @Table(name = "order", schema = "public")
 public class Order implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * Attributes
-     */
-
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Integer id;
 
@@ -30,29 +25,32 @@ public class Order implements Serializable {
     @Column(name = "order_status", nullable = false)
     private String orderStatus;
 
-    @Column(name = "order_comments")
-    private String orderComments;
+    @Column(name = "payment_id", nullable = false)
+    private Integer paymentID;
 
-    /**
-     * Relationships: one-to-many association to Payment
-     *                  many-to-one association to User
-     *                  many-to-one association to StationBicycle
-     */
+    @Column(name = "station_id", nullable = false)
+    private Integer stationID;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "payment_id")
+    @Column(name = "user_id", nullable = false)
+    private Integer userID;
+
+
+    
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn( name = "payment_id", insertable = false, updatable = false )
     private Payment payment;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn( name = "station_id", insertable = false, updatable = false )
+    private Station station;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn( name = "user_id", insertable = false, updatable = false )
     private User user;
 
-    /*@ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "station_id"),
-            @JoinColumn(name = "bicycle_id")
-    })
-    private StationBicycle stationBicycle;*/
+    
+
 
     /**
      * Constructor
@@ -88,14 +86,62 @@ public class Order implements Serializable {
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
+    public Integer getPaymentID() {
+		return this.paymentID;
+	}
 
-    public String getOrderComments() {
-        return orderComments;
-    }
+	public void setPaymentID(Integer paymentID) {
+		this.paymentID = paymentID;
+	}
+	public Integer getStationID() {
+		return this.stationID;
+	}
 
-    public void setOrderComments(String orderComments) {
-        this.orderComments = orderComments;
-    }
+	public void setStationID(Integer stationID) {
+		this.stationID = stationID;
+	}
+
+    public Integer getUserID() {
+		return this.userID;
+	}
+
+	public void setUserID(Integer userID) {
+		this.userID = userID;
+	}
+
+
+
+    
+
+
+
+
+
+	public Payment getPayment() {
+		return this.payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+    
+    public Station getStation() {
+		return this.station;
+	}
+
+	public void setStation(Station station) {
+		this.station = station;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+ 
 
     /**
      * Methods

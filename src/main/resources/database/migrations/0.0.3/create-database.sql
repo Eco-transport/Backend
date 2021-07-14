@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."user"
 -- ------------------------------ --
 -- Table "bdEcotransport"."public"."estacion" --
 -- ------------------------------ --
-CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."estacion"
+CREATE TABLE IF NOT EXISTS "bdEcotransport"."public"."station"
 (
     "station_id"      SERIAL       NOT NULL,
     "station_name"    VARCHAR(100) NOT NULL,

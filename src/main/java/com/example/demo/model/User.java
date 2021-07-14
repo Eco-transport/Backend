@@ -56,8 +56,12 @@ public class User implements Serializable{
 	private List<Role> roles;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Order> orders;
+
+	
+
+	
 
 	/**
 	 * Getters and setters
@@ -158,6 +162,10 @@ public class User implements Serializable{
     public User( ){
     }
 
+
+
+
+
     /**
      * Getters and Setters
      */
@@ -169,6 +177,14 @@ public class User implements Serializable{
     public void setRoles( List<Role> roles ){
         this.roles = roles;
     }
+
+	public List<Order> getOrders() {
+		return this.orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 
     /**
      * Methods
