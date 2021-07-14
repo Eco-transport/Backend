@@ -3,11 +3,9 @@ package com.example.demo.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Objects;
+import java.util.*;
 
-/**
- * The persistent class for the Order database table.
- */
+
 
 @Entity
 @Table(name = "order", schema = "public")
@@ -19,10 +17,11 @@ public class Order implements Serializable {
     @Column(name = "order_id")
     private Integer id;
 
+    @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "order_date", nullable = false)
-    private String orderDate;
+    private Calendar orderDate;
 
-    @Column(name = "order_status", nullable = false)
+	@Column(name = "order_status", nullable = false)
     private String orderStatus;
 
     @Column(name = "payment_id", nullable = false)
@@ -71,13 +70,13 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public String getOrderDate() {
-        return orderDate;
-    }
+    public Calendar getOrderDate() {
+		return this.orderDate;
+	}
 
-    public void setOrderDate(String orderDate) {
-        this.orderDate = orderDate;
-    }
+	public void setOrderDate(Calendar orderDate) {
+		this.orderDate = orderDate;
+	}
 
     public String getOrderStatus() {
         return orderStatus;
