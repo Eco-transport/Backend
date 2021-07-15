@@ -25,4 +25,11 @@ public class BicycleService{
     }
 
     
+
+    /* //Linked to SQL consult with repository
+     public ArrayList<Bicycle> getAvailableBikes(Integer id, String str){
+        return (ArrayList<Bicycle>) bicycleRepository.getAvailableBikes(id, str);
+    } */
+
+    
 }

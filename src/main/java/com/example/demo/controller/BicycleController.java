@@ -29,10 +29,32 @@ public class BicycleController{
         return this.bicycleService.getBicycles();
     }
     
+    
+
+
     @GetMapping( path = "/{stationId}")
-    public ArrayList<Bicycle> getStation(@PathVariable("stationId") Integer id ){
-        return this.bicycleService.getStations(id);
+    public Bicycle testing(@PathVariable("stationId") Integer id ){
+        ArrayList<Bicycle> stations = this.bicycleService.getStations(id);
+        Bicycle bike = new Bicycle();
+        for(int i= 0; i<stations.size(); i++){
+            Bicycle tmp = stations.get(i);
+            if(tmp.getBicycleStatus().equals("Disponible")){
+                bike = new Bicycle(tmp.getId(), 
+                                    tmp.getVendor(), 
+                                    tmp.getBicycleSerial(),
+                                    tmp.getBicycleStatus(),
+                                    tmp.getStationId()
+                                    );
+                break;
+            } 
+            else{
+                bike = new Bicycle(-1);//meaning something happened
+            }               
+        }
+        
+        return bike;
     }
 
+    
 
 }

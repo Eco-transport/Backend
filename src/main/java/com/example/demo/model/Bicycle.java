@@ -47,8 +47,22 @@ public class Bicycle implements Serializable {
     public Bicycle() {
     }
 
+    public Bicycle(Integer id) {
+        this.id = id;
+    }
+
+    public Bicycle(Integer id, String vendor, String bicycleSerial, String bicycleStatus, Integer stationId) {
+        this.id = id;
+        this.vendor = vendor;
+        this.bicycleSerial = bicycleSerial;
+        this.bicycleStatus = bicycleStatus;
+        this.stationId = stationId;        
+    }
+
+    
+
     /**
-     * Getters and setters
+     * Getters and setters for the relation tables
      */
 
     public Integer getStationId() {
@@ -68,7 +82,9 @@ public class Bicycle implements Serializable {
 	}
 
 
-
+    /**
+     * Getters and setters for atributes
+     */
 
     public Integer getId() {
         return id;
@@ -87,14 +103,28 @@ public class Bicycle implements Serializable {
         this.vendor = vendor;
     }
 
+    public String getBicycleSerial() {
+        return this.bicycleSerial;
+    }
 
+    public void setBicycleSerial(String bicycleSerial) {
+        this.bicycleSerial = bicycleSerial;
+    }
+
+    public String getBicycleStatus() {
+        return this.bicycleStatus;
+    }
+
+    public void setBicycleStatus(String bicycleStatus) {
+        this.bicycleStatus = bicycleStatus;
+    }
 
 
     /**
      * Methods
      */
 
-    @Override
+    /* @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Bicycle )) return false;
@@ -104,5 +134,5 @@ public class Bicycle implements Serializable {
     @Override
     public int hashCode() {
         return getClass().hashCode();
-    }
+    } */
 }
