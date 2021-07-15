@@ -10,9 +10,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table( name = "station", schema = "public" )
 public class Station implements Serializable{
 
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private static final long serialVersionUID = 1L;
+
+    @Id    
+	@SequenceGenerator( name = "STATION_STATIONID_GENERATOR", sequenceName = "public.station_station_id_seq", allocationSize = 1 )
+    @GeneratedValue( generator = "STATION_STATIONID_GENERATOR", strategy = GenerationType.SEQUENCE )
     @Column( name = "station_id" )
     private Integer id;    
     

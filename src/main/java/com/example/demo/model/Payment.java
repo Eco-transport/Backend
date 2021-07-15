@@ -16,11 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "payment", schema = "public")
 public class Payment implements Serializable {
 
-    //private static final long serialVersionUID = 1L;
-
-
+    private static final long serialVersionUID = 1L;
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator( name = "PAYMENT_PAYMENTID_GENERATOR", sequenceName = "public.payment_payment_id_seq", allocationSize = 1 )
+    @GeneratedValue( generator = "PAYMENT_PAYMENTID_GENERATOR", strategy = GenerationType.SEQUENCE )
     @Column(name = "payment_id")
     private Integer id;
 

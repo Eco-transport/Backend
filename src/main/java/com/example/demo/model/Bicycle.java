@@ -16,8 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "bicycle" , schema = "public" )
 public class Bicycle implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator( name = "BICYCLE_BICYCLEID_GENERATOR", sequenceName = "public.bicycle_bicycle_id_seq", allocationSize = 1 )
+    @GeneratedValue( generator = "BICYCLE_BICYCLEID_GENERATOR", strategy = GenerationType.SEQUENCE )
     @Column(name = "bicycle_id")
     private Integer id;   
     @Column(name = "bicycle_vendor", nullable = false)
