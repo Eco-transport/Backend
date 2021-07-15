@@ -5,6 +5,7 @@ import com.example.demo.pojo.*;
 import com.example.demo.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.*;
+import java.util.*;
 
 
 @Service
@@ -15,6 +16,15 @@ public class UserService{
     /* public UserService( UserRepository userRepository ){
         this.userRepository = userRepository;
     } */
+
+    
+    
+    public ArrayList<User> findAllUsers(){
+        return (ArrayList<User>) userRepository.findAll();
+    }
+
+
+
 
 
     public User findByUsername( String username ){

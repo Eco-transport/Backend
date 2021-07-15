@@ -10,7 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
+import java.util.*;
 import org.springframework.beans.factory.annotation.*;
 
 
@@ -32,6 +32,13 @@ public class UserController{
 
 
     //SPRINT 4 COMIENZA
+
+    @GetMapping( "/user/all" )
+    public ArrayList<User> gettingAll(){
+        return userService.findAllUsers();
+    }
+
+
     @GetMapping( "/user/getUser" )
     public User getUser( ){        
         String username = SecurityContextHolder.getContext( )

@@ -6,13 +6,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * The persistent class for the Bicycle database table.
  */
 
 @Entity
-@Table(name = "bicycle")
+@Table(name = "bicycle" , schema = "public" )
 public class Bicycle implements Serializable {
 
     @Id
@@ -31,7 +32,7 @@ public class Bicycle implements Serializable {
 	
 
 
-
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)    
     @JoinColumn(name= "station_id", insertable=false, updatable=false)
     private Station station;

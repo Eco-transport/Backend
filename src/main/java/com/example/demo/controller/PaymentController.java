@@ -17,22 +17,19 @@ import com.example.demo.service.*;
 
 
 @RestController
-@RequestMapping("/bicycle")
-public class BicycleController{
+@RequestMapping("/payment")
+public class PaymentController{
     
     @Autowired
-    BicycleService bicycleService;
+    PaymentService paymentService;
 
     
     @GetMapping()
-    public ArrayList<Bicycle> getBicycles(){
-        return this.bicycleService.getBicycles();
+    public ArrayList<Payment> getPayments(){
+        return this.paymentService.getPayments();
     }
     
-    @GetMapping( path = "/{stationId}")
-    public ArrayList<Bicycle> getStation(@PathVariable("stationId") Integer id ){
-        return this.bicycleService.getStations(id);
-    }
+
 
 
 }

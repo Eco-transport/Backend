@@ -46,7 +46,7 @@ public class Station implements Serializable{
 	private List<Bicycle> bicycles;
 
 	@JsonIgnore
-	@OneToMany(mappedBy="station", cascade=CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(mappedBy="stationOrder", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Order> orders;
 
 	

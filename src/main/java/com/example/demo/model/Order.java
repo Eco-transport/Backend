@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -35,15 +37,17 @@ public class Order implements Serializable {
 
 
     
-    
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "payment_id", insertable = false, updatable = false )
     private Payment payment;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "station_id", insertable = false, updatable = false )
-    private Station station;
+    private Station stationOrder;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn( name = "user_id", insertable = false, updatable = false )
     private User user;
@@ -124,12 +128,12 @@ public class Order implements Serializable {
 		this.payment = payment;
 	}
     
-    public Station getStation() {
-		return this.station;
+    public Station getStationOrder() {
+		return this.stationOrder;
 	}
 
 	public void setStation(Station station) {
-		this.station = station;
+		this.stationOrder = station;
 	}
 
 	public User getUser() {
