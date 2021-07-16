@@ -20,11 +20,27 @@ public class BicycleService{
         return (ArrayList<Bicycle>) bicycleRepository.findAll();
     }
 
+    //linked with controller -> matchingBikesWithStations()
     public ArrayList<Bicycle> getStations(Integer id){
         return (ArrayList<Bicycle>) bicycleRepository.findAllByStationId(id);
     }
 
+    public Bicycle saveBicycle( Bicycle bicycle ){
+        return bicycleRepository.save( bicycle );
+    }
+
     
+
+
+
+
+
+
+
+
+
+
+
 
     /* //Linked to SQL consult with repository
      public ArrayList<Bicycle> getAvailableBikes(Integer id, String str){

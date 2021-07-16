@@ -29,11 +29,16 @@ public class BicycleController{
         return this.bicycleService.getBicycles();
     }
     
+    @PostMapping("/save")
+    public Bicycle saveBicycle(@RequestBody Bicycle bicycle){
+        return this.bicycleService.saveBicycle(bicycle);
+    }
     
 
-
+    //Return the first bike available 
+    //that belong to the station entered by parameter
     @GetMapping( path = "/{stationId}")
-    public Bicycle testing(@PathVariable("stationId") Integer id ){
+    public Bicycle matchingBikesWithStations(@PathVariable("stationId") Integer id ){
         ArrayList<Bicycle> stations = this.bicycleService.getStations(id);
         Bicycle bike = new Bicycle();
         for(int i= 0; i<stations.size(); i++){

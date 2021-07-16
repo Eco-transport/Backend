@@ -34,19 +34,10 @@ public class StationController{
         return this.stationService.saveStation(station);
     }
     
-
-    
     @GetMapping( path = "/{id}")
     public Station findStationById(@PathVariable("id") Integer id) {
         return this.stationService.findById(id);
     }
-
-    /*
-    @GetMapping("/query")
-    public ArrayList<Usuario> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad){
-        return this.usuarioService.obtenerPorPrioridad(prioridad);
-    }
-    */
 
 
     @DeleteMapping()
