@@ -28,7 +28,7 @@ public class Payment implements Serializable {
     private String type;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "payment", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "payment")
     private List<Order> orders;
 
 	

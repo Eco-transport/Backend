@@ -29,15 +29,24 @@ public class OrderController {
         return this.orderService.saveOrder(order);
     }
 
+    //Find an order by orderID
     @GetMapping( path = "/{orderId}")
     public Order findOrderById(@PathVariable("orderId") Integer id) {
         return this.orderService.findOrderById(id);
     }
 
-    @GetMapping( path = "/test/{orderUserId}")
-    public Order findOrderByUserId(@PathVariable("order_user_id") Integer orderUserId) {
-        return this.orderService.findOrderByUserId(orderUserId);
+    
+    
+    
+    //Find an order by userID
+    @GetMapping( path = "/user/{userId}")
+    public ArrayList<Order> findOrderByUserId(@PathVariable("userId") Integer id) {
+        return this.orderService.matchingBetweenUserAndOrder(id);
     }
+
+
+
+
 
     @DeleteMapping()
     public String deleteAllOrders(){

@@ -42,7 +42,7 @@ public class Order implements Serializable {
     private Integer stationID;
 
     @Column(name = "user_id", nullable = false)
-    private Integer userID;
+    private Integer userId;
 
 
     
@@ -132,12 +132,12 @@ public class Order implements Serializable {
         this.stationID = stationID;
     }
 
-    public Integer getUserID() {
-        return this.userID;
+    public Integer getUserId() {
+        return this.userId;
     }
 
-    public void setUserID(Integer userID) {
-        this.userID = userID;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
 
@@ -175,7 +175,7 @@ public class Order implements Serializable {
      * Methods
      */
 
-    @Override
+    /* @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -186,5 +186,5 @@ public class Order implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id, orderDate);
-    }
+    } */
 }

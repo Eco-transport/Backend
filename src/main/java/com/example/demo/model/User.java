@@ -56,7 +56,7 @@ public class User implements Serializable{
 	private List<Role> roles;
 
 	@JsonIgnore
-	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(mappedBy="user")
 	private List<Order> orders;
 
 	

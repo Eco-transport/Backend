@@ -12,21 +12,35 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
     
+    //Find all registers inside ORDER table
     public ArrayList<Order> getAllOrders(){
         return (ArrayList<Order>) orderRepository.findAll();
     }
-    //GUARDAR
+
+    //Update a row with new data
+    // OR enter new register
     public Order saveOrder( Order order ){
         return orderRepository.save( order );
     }
-    //ENCONTRA POR ID
+
+    //Find an order by orderID
     public Order findOrderById( Integer id ){
         return orderRepository.findById( id ).orElse( null );
     }    
 
-    public Order findOrderByUserId( Integer userID ){
-        return orderRepository.findByUserId( userID );
-    }   
+    //Find an order by userID
+    public ArrayList<Order> matchingBetweenUserAndOrder( Integer id ){
+        return (ArrayList<Order>)orderRepository.findAllByUserId(id);
+    }
+
+    
+    
+    
+
+
+
+
+
 
     public boolean deleteOrderById(Integer id) {
         try{

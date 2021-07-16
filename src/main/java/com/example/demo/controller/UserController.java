@@ -31,7 +31,7 @@ public class UserController{
     }
 
 
-    //SPRINT 4 COMIENZA
+    //SPRINT 3 COMIENZA
 
     @GetMapping( "/user/all" )
     public ArrayList<User> gettingAll(){
@@ -43,13 +43,14 @@ public class UserController{
     public User getUser( ){        
         String username = SecurityContextHolder.getContext( )
                             .getAuthentication( )
-                            .getName(); //getName return the username logged, this must be unique!!
+                            .getName(); //getName return the username logged. 
+                                        //This must be unique but rigth now is configurated July-15-2021
 
         User usuario = userService.findByUsername(username);
         return new User(usuario.getId(), usuario.getNames(), usuario.getUsername(), usuario.getIdentityNumber());
     }
 
-    //SPRINT 4 TERMINA
+    //SPRINT 3 TERMINA
 
 
 
