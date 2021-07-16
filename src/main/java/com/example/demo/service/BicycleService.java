@@ -29,6 +29,9 @@ public class BicycleService{
         return bicycleRepository.save( bicycle );
     }
 
+    public Bicycle findById( Integer id ){
+        return bicycleRepository.findById( id ).orElse( null );
+    }
     
 
 

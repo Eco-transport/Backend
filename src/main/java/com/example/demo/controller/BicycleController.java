@@ -35,6 +35,12 @@ public class BicycleController{
     }
     
 
+    @GetMapping( path = "/id/{id}")
+    public Bicycle findStationById(@PathVariable("id") Integer id) {
+        return this.bicycleService.findById(id);
+    }
+
+
     //Return the first bike available 
     //that belong to the station entered by parameter
     @GetMapping( path = "/{stationId}")

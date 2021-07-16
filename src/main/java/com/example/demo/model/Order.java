@@ -34,6 +34,8 @@ public class Order implements Serializable {
     @Column(name = "order_price", nullable = false)
     private Integer price;
 
+    @Column(name = "serial_bicycle", nullable = false)
+    private String serialBicycle;
 
     @Column(name = "payment_id", nullable = false)
     private Integer paymentID;
@@ -110,6 +112,14 @@ public class Order implements Serializable {
 
     public Integer getPrice() {
         return this.price;
+    }
+
+    public String getSerialBicycle() {
+        return this.serialBicycle;
+    }
+
+    public void setSerialBicycle(String serialBicycle) {
+        this.serialBicycle = serialBicycle;
     }
 
     public void setPrice(Integer price) {
