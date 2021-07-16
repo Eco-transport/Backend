@@ -44,11 +44,11 @@ public class Station implements Serializable{
 
 
 	@JsonIgnore
-	@OneToMany(mappedBy="station", cascade=CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(mappedBy="station")
 	private List<Bicycle> bicycles;
 
 	@JsonIgnore
-	@OneToMany(mappedBy="stationOrder", cascade=CascadeType.ALL, orphanRemoval=true)
+	@OneToMany(mappedBy="stationOrder")
 	private List<Order> orders;
 
 	
