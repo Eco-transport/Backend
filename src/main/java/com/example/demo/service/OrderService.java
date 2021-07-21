@@ -1,8 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.controller.StationController;
 import com.example.demo.model.*;
 import com.example.demo.pojo.*;
-import com.example.demo.repository.OrderRepository;
+import com.example.demo.repository.*;
 import org.springframework.stereotype.Service;
 import java.util.*;
 import org.springframework.beans.factory.annotation.*;
@@ -10,7 +11,14 @@ import org.springframework.beans.factory.annotation.*;
 @Service
 public class OrderService {
     @Autowired
-    OrderRepository orderRepository;
+    OrderRepository orderRepository;    
+
+    @Autowired
+    StationController stationController;
+
+    
+    Station tmpStation = new Station() ;
+
     
     //Find all registers inside ORDER table
     public ArrayList<Order> getAllOrders(){
@@ -29,8 +37,15 @@ public class OrderService {
     }    
 
     //Find an order by userID
-    public ArrayList<Order> matchingBetweenUserAndOrder( Integer id ){
-        return (ArrayList<Order>)orderRepository.findAllByUserId(id);
+    public String matchingBetweenUserAndOrder( Integer id ){
+        ArrayList<Order> tmp = (ArrayList<Order>)orderRepository.findAllByUserId(id);
+        ArrayList<Order> result = new ArrayList<>();
+        for(Order pedido : tmp){
+            int station = pedido.getStationID();
+            tmpStation = this.stationController.findStationById(station);
+        }
+
+        return tmpStation.getStationName();
     }
 
     
