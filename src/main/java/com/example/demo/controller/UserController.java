@@ -50,6 +50,13 @@ public class UserController{
         return new User(usuario.getId(), usuario.getNames(), usuario.getUsername(), usuario.getIdentityNumber());
     }
 
+    @GetMapping( "/user/getNames" )
+    public String getNames( ){
+        String username = SecurityContextHolder.getContext( ).getAuthentication( ).getName(); 
+        User nuevo = userService.findByUsername(username);
+        return nuevo.getNames();        
+    }
+
     //SPRINT 3 TERMINA
 
 
