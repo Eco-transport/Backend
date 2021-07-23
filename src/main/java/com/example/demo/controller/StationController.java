@@ -39,6 +39,17 @@ public class StationController{
         return this.stationService.findById(id);
     }
 
+    @PostMapping( path = "/addBicycle/{id}")
+    public Station addBicycleToStation(@PathVariable("id") Integer id) {
+        Station nuevo = stationService.findById(id);
+        int available = nuevo.getAvailable() + 1;
+        int inventory = nuevo.getInventory() + 1;
+        nuevo.setAvailable(available);
+        nuevo.setInventory(inventory);
+        this.stationService.saveStation(nuevo);
+        return this.stationService.findById(id);
+    }
+
 
     @DeleteMapping()
     public String deleteAllStations(){
