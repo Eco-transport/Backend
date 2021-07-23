@@ -23,6 +23,10 @@ public class UserService{
         return (ArrayList<User>) userRepository.findAll();
     }
 
+    public User findById( Integer id ){
+        return userRepository.findById( id ).orElse( null );
+    }
+
 
 
 

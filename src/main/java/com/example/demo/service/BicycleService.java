@@ -33,6 +33,9 @@ public class BicycleService{
         return bicycleRepository.findById( id ).orElse( null );
     }
     
+    public Bicycle findBySerial(String serial){
+        return bicycleRepository.findByBicycleSerialEquals(serial);
+    }
 
 
 

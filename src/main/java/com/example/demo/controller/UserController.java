@@ -57,6 +57,11 @@ public class UserController{
         return nuevo.getNames();        
     }
 
+    @GetMapping( path = "/user/{id}")
+    public User findUserById(@PathVariable("id") Integer id) {
+        return this.userService.findById(id);
+    }
+
     //SPRINT 3 TERMINA
 
 

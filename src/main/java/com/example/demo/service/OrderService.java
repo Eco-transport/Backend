@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.StationController;
+import com.example.demo.controller.*;
 import com.example.demo.model.*;
 import com.example.demo.pojo.*;
 import com.example.demo.repository.*;
@@ -16,8 +16,13 @@ public class OrderService {
     @Autowired
     StationController stationController;
 
+    @Autowired
+    BicycleController bicycleController;
+
+    @Autowired
+    UserController userController;
     
-    Station tmpStation = new Station() ;
+    
 
     
     //Find all registers inside ORDER table
@@ -37,15 +42,32 @@ public class OrderService {
     }    
 
     //Find an order by userID
-    public String matchingBetweenUserAndOrder( Integer id ){
+    public ArrayList<Order> matchingBetweenUserAndOrder( Integer id ){
         ArrayList<Order> tmp = (ArrayList<Order>)orderRepository.findAllByUserId(id);
         ArrayList<Order> result = new ArrayList<>();
+        Station tmpStation = new Station();
+        User tmpUser = new User();
+
         for(Order pedido : tmp){
-            int station = pedido.getStationID();
+            int station = pedido.getStationID(),
+                user = pedido.getUserId();
             tmpStation = this.stationController.findStationById(station);
+            tmpUser = this.userController.findUserById(user);
+            String nameStation = tmpStation.getStationName();
+            String nameUser = tmpUser.getUsername();
+            /* result.add(tmp.get(0), 
+                        tmp.get(1),
+                        tmp.get(2),
+                        tmp.get(3),
+                        tmp.get(4),
+                        tmp.get(5),
+                        tmp.get(6),
+                        nameStation,
+                        nameUser ); */
+
         }
 
-        return tmpStation.getStationName();
+        return tmp;
     }
 
     

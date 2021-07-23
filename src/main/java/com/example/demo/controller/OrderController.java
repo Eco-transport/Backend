@@ -40,7 +40,7 @@ public class OrderController {
     
     //Find an order by userID
     @GetMapping( path = "/user/{userId}")
-    public String findOrderByUserId(@PathVariable("userId") Integer id) {
+    public ArrayList<Order> findOrderByUserId(@PathVariable("userId") Integer id) {
         return this.orderService.matchingBetweenUserAndOrder(id);
     }
 

@@ -73,6 +73,22 @@ public class Order implements Serializable {
     public Order() {
     }
 
+   /*  public Order(Integer id, String orderDate, String orderStatus, Integer hours, 
+        Integer price, String serialBicycle, Integer paymentID, 
+        String stationID, String userId) {
+        this.id = id;
+        this.orderDate = orderDate;
+        this.orderStatus = orderStatus;
+        this.hours = hours;
+        this.price = price;
+        this.serialBicycle = serialBicycle;
+        this.paymentID = paymentID;
+        this.stationID = String.valueOf(stationID);
+        this.userId = String.valueOf(userId);
+        
+    } */
+
+
     /**
      * Getters and setters
      */

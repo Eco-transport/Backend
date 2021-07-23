@@ -40,6 +40,11 @@ public class BicycleController{
         return this.bicycleService.findById(id);
     }
 
+    @GetMapping( path="/serial/{bicycleSerial}")
+    public Bicycle findBySerial(@PathVariable("bicycleSerial") String serial){
+        return this.bicycleService.findBySerial(serial);
+    }
+
 
     //Return the first bike available 
     //that belong to the station entered by parameter
