@@ -127,13 +127,13 @@ public class Bicycle implements Serializable {
      * Methods
      */
 
-    /* @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Bicycle )) return false;
-        return id != null && id.equals(((Bicycle) o).getId());
+        return id != null && id.equals(((Bicycle) o).getBicycleSerial());
     }
-
+    /*
     @Override
     public int hashCode() {
         return getClass().hashCode();
