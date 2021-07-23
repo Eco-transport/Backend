@@ -33,7 +33,14 @@ public class BicycleService{
         return bicycleRepository.findById( id ).orElse( null );
     }
     
-
+    public boolean deleteStation(Integer id) {
+        try{
+            bicycleRepository.deleteById(id);
+            return true;
+        }catch(Exception err){
+            return false;
+        }
+    }
 
 
 

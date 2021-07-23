@@ -40,7 +40,11 @@ public class BicycleController{
         return this.bicycleService.findById(id);
     }
 
-
+    @GetMapping( path = "/findBicycle/{id}")
+    public Bicycle findBicycleById(@PathVariable("id") Integer id) {
+        return this.bicycleService.findById(id);
+    }
+    
     //Return the first bike available 
     //that belong to the station entered by parameter
     @GetMapping( path = "/{stationId}")
@@ -66,6 +70,14 @@ public class BicycleController{
         return bike;
     }
 
-    
+    @DeleteMapping( path = "/{id}")
+    public String deleteById(@PathVariable("id") Integer id){
+        boolean ok = this.bicycleService.deleteStation(id);
+        if (ok){
+            return "Se eliminó la ESTACION con id " + id;
+        }else{
+            return "No pudo eliminar la ESTACION con id" + id;
+        }
+    }
 
 }
