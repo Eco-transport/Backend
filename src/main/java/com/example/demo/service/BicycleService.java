@@ -37,15 +37,14 @@ public class BicycleService{
         return bicycleRepository.findByBicycleSerialEquals(serial);
     }
 
-
-
-
-
-
-
-
-
-
+    public boolean deleteStation(Integer id) {
+        try{
+            bicycleRepository.deleteById(id);
+            return true;
+        }catch(Exception err){
+            return false;
+        }
+    }
 
 
     /* //Linked to SQL consult with repository
