@@ -46,6 +46,12 @@ public class Order implements Serializable {
     @Column(name = "user_id", nullable = false)
     private Integer userId;
 
+    @Column(name = "service_start", nullable = false)
+    private String serviceStart;
+
+    @Column(name = "service_finish", nullable = false)
+    private String serviceFinish;
+
 
     
     @JsonIgnore
@@ -166,7 +172,21 @@ public class Order implements Serializable {
         this.userId = userId;
     }
 
+    public String getServiceStart() {
+        return this.serviceStart;
+    }
 
+    public void setServiceStart(String serviceStart) {
+        this.serviceStart = serviceStart;
+    } 
+
+    public String getServiceFinish() {
+        return this.serviceFinish;
+    }
+
+    public void setServiceFinish(String serviceFinish) {
+        this.serviceFinish = serviceFinish;
+    } 
 
 
     /*Getters and Setters of the relations */
@@ -193,9 +213,6 @@ public class Order implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-    
-
- 
 
     /**
      * Methods
