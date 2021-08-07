@@ -8,8 +8,6 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 
-
-
 @Service
 public class BicycleService{
 
@@ -45,12 +43,4 @@ public class BicycleService{
             return false;
         }
     }
-
-
-    /* //Linked to SQL consult with repository
-     public ArrayList<Bicycle> getAvailableBikes(Integer id, String str){
-        return (ArrayList<Bicycle>) bicycleRepository.getAvailableBikes(id, str);
-    } */
-
-    
 }

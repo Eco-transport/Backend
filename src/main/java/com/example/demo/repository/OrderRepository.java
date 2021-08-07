@@ -11,5 +11,4 @@ public interface OrderRepository extends JpaRepository<Order, Integer>{
 
     ArrayList<Order> findAllByUserId(Integer id);
     
-    
 }

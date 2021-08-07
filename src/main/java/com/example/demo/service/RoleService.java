@@ -8,17 +8,11 @@ import org.springframework.beans.factory.annotation.*;
 
 import java.util.List;
 
-
 @Service
 public class RoleService{
 
     @Autowired
     RoleRepository roleRepository;
-
-    //CONSTRUCTOR    
-    /* public RoleService( RoleRepository roleRepository ){
-        this.roleRepository = roleRepository;
-    } */
 
     public Role findById( Integer id ){
         return roleRepository.findById( id ).orElse( null );

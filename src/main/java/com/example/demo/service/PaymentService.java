@@ -8,8 +8,6 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.*;
 
-
-
 @Service
 public class PaymentService{
 
@@ -19,7 +17,5 @@ public class PaymentService{
     public ArrayList<Payment> getPayments(){
         return (ArrayList<Payment>) paymentRepository.findAll();
     }
-    
-
 
 }

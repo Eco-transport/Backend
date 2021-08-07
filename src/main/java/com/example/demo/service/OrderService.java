@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.*;
 
 @Service
 public class OrderService {
+
     @Autowired
     OrderRepository orderRepository;    
 
@@ -21,10 +22,7 @@ public class OrderService {
 
     @Autowired
     UserController userController;
-    
-    
 
-    
     //Find all registers inside ORDER table
     public ArrayList<Order> getAllOrders(){
         return (ArrayList<Order>) orderRepository.findAll();
@@ -69,15 +67,6 @@ public class OrderService {
 
         return tmp;
     }
-
-    
-    
-    
-
-
-
-
-
 
     public boolean deleteOrderById(Integer id) {
         try{
