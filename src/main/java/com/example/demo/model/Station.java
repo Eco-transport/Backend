@@ -5,7 +5,6 @@ import javax.persistence.*;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table( name = "station", schema = "public" )
 public class Station implements Serializable{
@@ -42,7 +41,6 @@ public class Station implements Serializable{
     @Column(name = "station_close_time", nullable = false)
     private String closeTime;
 
-
 	@JsonIgnore
 	@OneToMany(mappedBy="station")
 	private List<Bicycle> bicycles;
@@ -50,12 +48,6 @@ public class Station implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy="stationOrder")
 	private List<Order> orders;
-
-	
-
-
-
-
 
 	/**
      * Constructors
@@ -84,10 +76,6 @@ public class Station implements Serializable{
 	public void setBicycles(List<Bicycle> bicycles) {
 		this.bicycles = bicycles;
 	}
-
-
-
-
 
     public Integer getId() {
 		return this.id;
@@ -160,8 +148,6 @@ public class Station implements Serializable{
 	public void setCloseTime(String closeTime) {
 		this.closeTime = closeTime;
 	}
-
-
     
     /**
      * Methods

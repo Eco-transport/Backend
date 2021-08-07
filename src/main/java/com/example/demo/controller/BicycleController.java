@@ -13,16 +13,12 @@ import com.example.demo.model.*;
 import com.example.demo.pojo.*;
 import com.example.demo.service.*;
 
-
-
-
 @RestController
 @RequestMapping("/bicycle")
 public class BicycleController{
     
     @Autowired
     BicycleService bicycleService;
-
     
     @GetMapping()
     public ArrayList<Bicycle> getBicycles(){
@@ -33,7 +29,6 @@ public class BicycleController{
     public Bicycle saveBicycle(@RequestBody Bicycle bicycle){
         return this.bicycleService.saveBicycle(bicycle);
     }
-    
 
     @GetMapping( path = "/id/{id}")
     public Bicycle findStationById(@PathVariable("id") Integer id) {
@@ -50,8 +45,7 @@ public class BicycleController{
         return this.bicycleService.findById(id);
     }
 
-    //Return the first bike available 
-    //that belong to the station entered by parameter
+    // Retorna la primera bicicleta disponible que pertenezca a la estación
     @GetMapping( path = "/{stationId}")
     public Bicycle matchingBikesWithStations(@PathVariable("stationId") Integer id ){
         ArrayList<Bicycle> stations = this.bicycleService.getStations(id);
@@ -66,8 +60,7 @@ public class BicycleController{
                                     tmp.getStationId()
                                     );
                 break;
-            } 
-            else{
+            } else {
                 bike = new Bicycle(-1);//meaning something happened
             }               
         }
@@ -78,11 +71,10 @@ public class BicycleController{
     @DeleteMapping( path = "/{id}")
     public String deleteById(@PathVariable("id") Integer id){
         boolean ok = this.bicycleService.deleteStation(id);
-        if (ok){
+        if(ok) {
             return "Se eliminó la ESTACION con id " + id;
-        }else{
+        } else {
             return "No pudo eliminar la ESTACION con id" + id;
         }
     }
-
 }

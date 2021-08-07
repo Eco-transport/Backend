@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.*;//autowired
 
 import java.util.*;
 
-
 @RestController
 public class RoleController{
 
@@ -21,7 +20,6 @@ public class RoleController{
 
     @Autowired
     UserService userService;
-
     
     /* public RoleController( RoleService roleService, UserService userService ){
         this.roleService = roleService;

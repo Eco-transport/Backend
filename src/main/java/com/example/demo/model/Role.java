@@ -5,16 +5,15 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the role database table.
  */
+
 @Entity
 @Table( name = "role", schema = "public" )
 public class Role implements Serializable{
 
     private static final long serialVersionUID = 1L;
-
     public static final int ROLE_CLIENTE = 1;
     public static final int ROLE_ADMIN = 2;
 
@@ -41,8 +40,7 @@ public class Role implements Serializable{
      * Constructors
      */
 
-    public Role( ){
-    }
+    public Role( ){}
 
     /**
      * Getters and Setters
@@ -86,5 +84,4 @@ public class Role implements Serializable{
     public int hashCode( ){
         return id;
     }
-
 }

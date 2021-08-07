@@ -5,10 +5,10 @@ import javax.persistence.*;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 /**
  * The persistent class for the user database table.
  */
+
 @Entity
 @Table( name = "user", schema = "public" )
 public class User implements Serializable{
@@ -58,10 +58,6 @@ public class User implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private List<Order> orders;
-
-	
-
-	
 
 	/**
 	 * Getters and setters
@@ -159,8 +155,7 @@ public class User implements Serializable{
      * Constructors
      */
 
-    public User( ){
-    }
+    public User( ){}
 
 	public User(Integer id, String username, String name, String cedula){
 		this.id = id;
@@ -168,8 +163,6 @@ public class User implements Serializable{
 		this.names = name;
 		this.identityNumber = cedula;
     }
-
-
 
     /**
      * Getters and Setters
@@ -213,5 +206,4 @@ public class User implements Serializable{
     public int hashCode( ){
         return id;
     }
-
 }

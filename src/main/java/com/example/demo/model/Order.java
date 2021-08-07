@@ -7,8 +7,6 @@ import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-
 @Entity
 @Table(name = "order", schema = "public")
 public class Order implements Serializable {
@@ -21,7 +19,6 @@ public class Order implements Serializable {
     @Column(name = "order_id")
     private Integer id;
 
-    //@Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "order_date", nullable = false)
     private String orderDate;
 
@@ -51,8 +48,6 @@ public class Order implements Serializable {
 
     @Column(name = "service_finish", nullable = false)
     private String serviceFinish;
-
-
     
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -69,36 +64,15 @@ public class Order implements Serializable {
     @JoinColumn( name = "user_id", insertable = false, updatable = false )
     private User user;
 
-    
-
-
     /**
      * Constructor
      */
 
-    public Order() {
-    }
-
-   /*  public Order(Integer id, String orderDate, String orderStatus, Integer hours, 
-        Integer price, String serialBicycle, Integer paymentID, 
-        String stationID, String userId) {
-        this.id = id;
-        this.orderDate = orderDate;
-        this.orderStatus = orderStatus;
-        this.hours = hours;
-        this.price = price;
-        this.serialBicycle = serialBicycle;
-        this.paymentID = paymentID;
-        this.stationID = String.valueOf(stationID);
-        this.userId = String.valueOf(userId);
-        
-    } */
-
+    public Order() {}
 
     /**
      * Getters and setters
      */
-
 
     public Integer getId() {
         return this.id;
@@ -186,8 +160,7 @@ public class Order implements Serializable {
 
     public void setServiceFinish(String serviceFinish) {
         this.serviceFinish = serviceFinish;
-    } 
-
+    }
 
     /*Getters and Setters of the relations */
     public Payment getPayment() {
@@ -217,17 +190,4 @@ public class Order implements Serializable {
     /**
      * Methods
      */
-
-    /* @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return id.equals(order.id) && orderDate.equals(order.orderDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, orderDate);
-    } */
 }

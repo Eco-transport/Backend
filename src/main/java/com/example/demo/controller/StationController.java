@@ -13,16 +13,12 @@ import com.example.demo.model.*;
 import com.example.demo.pojo.*;
 import com.example.demo.service.*;
 
-
-
-
 @RestController
 @RequestMapping("/station")
 public class StationController{
     
     @Autowired
     StationService stationService;
-
     
     @GetMapping()
     public ArrayList<Station> getStations(){
@@ -34,12 +30,12 @@ public class StationController{
         return this.stationService.saveStation(station);
     }
     
-    @GetMapping( path = "/{id}")
+    @GetMapping(path = "/{id}")
     public Station findStationById(@PathVariable("id") Integer id) {
         return this.stationService.findById(id);
     }
 
-    @PostMapping( path = "/addBicycle/{id}")
+    @PostMapping(path = "/addBicycle/{id}")
     public Station addBicycleToStation(@PathVariable("id") Integer id) {
         Station nuevo = stationService.findById(id);
         int available = nuevo.getAvailable() + 1;
@@ -50,7 +46,6 @@ public class StationController{
         return this.stationService.findById(id);
     }
 
-
     @DeleteMapping()
     public String deleteAllStations(){
         boolean ok = this.stationService.deleteAllStations();
@@ -60,7 +55,6 @@ public class StationController{
             return "No se eliminaron todas las ESTACIONES";
         }
     }
-
     
     @DeleteMapping( path = "/{id}")
     public String deleteById(@PathVariable("id") Integer id){
@@ -71,7 +65,4 @@ public class StationController{
             return "No pudo eliminar la ESTACION con id" + id;
         }
     }
-
-
-
 }

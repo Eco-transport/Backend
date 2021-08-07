@@ -6,7 +6,6 @@ package com.example.demo.pojo;
 public class LoginUserPOJO{
 
     private String username;
-
     private String password;
 
     public String getUsername( ){

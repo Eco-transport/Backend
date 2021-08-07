@@ -13,23 +13,15 @@ import com.example.demo.model.*;
 import com.example.demo.pojo.*;
 import com.example.demo.service.*;
 
-
-
-
 @RestController
 @RequestMapping("/payment")
 public class PaymentController{
     
     @Autowired
     PaymentService paymentService;
-
     
     @GetMapping()
     public ArrayList<Payment> getPayments(){
         return this.paymentService.getPayments();
     }
-    
-
-
-
 }

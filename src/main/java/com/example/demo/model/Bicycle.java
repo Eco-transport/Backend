@@ -22,26 +22,24 @@ public class Bicycle implements Serializable {
     @SequenceGenerator( name = "BICYCLE_BICYCLEID_GENERATOR", sequenceName = "public.bicycle_bicycle_id_seq", allocationSize = 1 )
     @GeneratedValue( generator = "BICYCLE_BICYCLEID_GENERATOR", strategy = GenerationType.SEQUENCE )
     @Column(name = "bicycle_id")
-    private Integer id;   
+    private Integer id;
+
     @Column(name = "bicycle_vendor", nullable = false)
     private String vendor;
+
     @Column( name = "bicycle_serial", nullable = false )
-    private String bicycleSerial;    
+    private String bicycleSerial;
+
     @Column( name = "bicycle_status", nullable = false )
     private String bicycleStatus;
+
     @Column( name = "station_id", nullable = false )
     private Integer stationId;
-
-	
-
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)    
     @JoinColumn(name= "station_id", insertable=false, updatable=false)
     private Station station;
-
-	
-
 
     /**
      * Constructor
@@ -61,8 +59,6 @@ public class Bicycle implements Serializable {
         this.bicycleStatus = bicycleStatus;
         this.stationId = stationId;        
     }
-
-    
 
     /**
      * Getters and setters for the relation tables
@@ -84,7 +80,6 @@ public class Bicycle implements Serializable {
 		this.station = station;
 	}
 
-
     /**
      * Getters and setters for atributes
      */
@@ -96,7 +91,6 @@ public class Bicycle implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public String getVendor() {
         return vendor;
@@ -122,7 +116,6 @@ public class Bicycle implements Serializable {
         this.bicycleStatus = bicycleStatus;
     }
 
-
     /**
      * Methods
      */
@@ -133,9 +126,4 @@ public class Bicycle implements Serializable {
         if (!(o instanceof Bicycle )) return false;
         return id != null && id.equals(((Bicycle) o).getBicycleSerial());
     }
-    /*
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    } */
 }

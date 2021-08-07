@@ -7,8 +7,6 @@ public class RegisterUserPOJO{
     private String surnames;
     private String username;
 
-
-
     public String getNames( ){
         return names;
     }

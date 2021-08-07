@@ -16,6 +16,7 @@ import com.example.demo.service.*;
 @RestController
 @RequestMapping("/order")
 public class OrderController {
+
     @Autowired
     OrderService orderService;
 
@@ -34,19 +35,12 @@ public class OrderController {
     public Order findOrderById(@PathVariable("orderId") Integer id) {
         return this.orderService.findOrderById(id);
     }
-
-    
-    
     
     //Find an order by userID
     @GetMapping( path = "/user/{userId}")
     public ArrayList<Order> findOrderByUserId(@PathVariable("userId") Integer id) {
         return this.orderService.matchingBetweenUserAndOrder(id);
     }
-
-
-
-
 
     @DeleteMapping()
     public String deleteAllOrders(){
@@ -67,5 +61,4 @@ public class OrderController {
             return "ERROR eliminar la ORDEN con id" + id;
         }
     }
-
 }

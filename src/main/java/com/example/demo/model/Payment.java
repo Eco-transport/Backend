@@ -31,20 +31,15 @@ public class Payment implements Serializable {
     @OneToMany(mappedBy = "payment")
     private List<Order> orders;
 
-	
-
-
     /**
      * Constructor
      */
 
-    public Payment() {
-    }
+    public Payment() {}
 
     /**
      * Getters and setters
      */
-
 
     public List<Order> getOrders() {
 		return this.orders;

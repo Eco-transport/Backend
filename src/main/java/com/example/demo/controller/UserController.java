@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import org.springframework.beans.factory.annotation.*;
 
-
 @RestController
 public class UserController{
     @Autowired
@@ -23,28 +22,22 @@ public class UserController{
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    // CONSTRUCTOR
     public UserController( UserService userService, RoleService roleService, PasswordEncoder passwordEncoder ){
         this.userService = userService;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
     }
 
-
-    //SPRINT 3 COMIENZA
-
     @GetMapping( "/user/all" )
     public ArrayList<User> gettingAll(){
         return userService.findAllUsers();
     }
 
-
     @GetMapping( "/user/getUser" )
     public User getUser( ){        
         String username = SecurityContextHolder.getContext( )
                             .getAuthentication( )
-                            .getName(); //getName return the username logged. 
-                                        //This must be unique but rigth now is configurated July-15-2021
+                            .getName();
 
         User usuario = userService.findByUsername(username);
         return new User(usuario.getId(), usuario.getNames(), usuario.getUsername(), usuario.getIdentityNumber());
@@ -61,13 +54,6 @@ public class UserController{
     public User findUserById(@PathVariable("id") Integer id) {
         return this.userService.findById(id);
     }
-
-    //SPRINT 3 TERMINA
-
-
-
-
-
 
     @PostMapping( value = { "/registro/nuevo-usuario" } )
     public ResponseEntity<Void> registerNewUser( @RequestBody User userPOJO ){
@@ -118,5 +104,8 @@ public class UserController{
         update_user = this.userService.findByUsername(userPOJO.getUsername()); 
         return true;
     }
+
+    @GetMapping(value = {"/user/getIdsAndUsernames"})
+    public Map getIdsAndUsernames() { return userService.getUsersById(); }
 
 }

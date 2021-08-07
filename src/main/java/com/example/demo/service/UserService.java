@@ -7,18 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.*;
 import java.util.*;
 
-
 @Service
 public class UserService{
+
     @Autowired
     UserRepository userRepository;
 
-    /* public UserService( UserRepository userRepository ){
-        this.userRepository = userRepository;
-    } */
-
-    
-    
     public ArrayList<User> findAllUsers(){
         return (ArrayList<User>) userRepository.findAll();
     }
@@ -26,10 +20,6 @@ public class UserService{
     public User findById( Integer id ){
         return userRepository.findById( id ).orElse( null );
     }
-
-
-
-
 
     public User findByUsername( String username ){
         return userRepository.findByUsername( username );
@@ -62,4 +52,14 @@ public class UserService{
         return correctness;
     }
 
+    public Map getUsersById() {
+        Map<Integer, String> idsandusernames = new HashMap<>();
+        ArrayList<User> alluserdata = findAllUsers();
+
+        alluserdata.forEach(user -> {
+            idsandusernames.put(user.getId(), user.getUsername());
+        });
+
+        return idsandusernames;
+    }
 }

@@ -6,7 +6,6 @@ package com.example.demo.pojo;
 public class RecuperarPasswordPOJO{
 
     private String username;
-
     private String answer;
 
     public String getUsername( ){
