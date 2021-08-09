@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StationRepository extends JpaRepository<Station, Integer>{
+    Station findByStationNameEquals(String stationName);
 
 }

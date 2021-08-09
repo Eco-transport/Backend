@@ -29,6 +29,11 @@ public class StationService{
         return stationRepository.findById( id ).orElse( null );
     }
 
+    //ENCONTRAR POR NOMBRE DE ESTACIÓN
+    public Station findByStationName( String stationName ){
+        return stationRepository.findByStationNameEquals( stationName );
+    } 
+
     //ELIMINAR POR ID
     public boolean deleteStation(Integer id) {
         try{

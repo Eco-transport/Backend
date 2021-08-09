@@ -35,6 +35,11 @@ public class StationController{
         return this.stationService.findById(id);
     }
 
+    @GetMapping(path = "/testing/{stationName}")
+    public Station findStationByStationName(@PathVariable("stationName") String stationName) {
+        return this.stationService.findByStationName(stationName);
+    } 
+
     @PostMapping(path = "/addBicycle/{id}")
     public Station addBicycleToStation(@PathVariable("id") Integer id) {
         Station nuevo = stationService.findById(id);
