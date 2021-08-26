@@ -90,4 +90,11 @@
 		</plugins>
 	</build>
 
+	<properties>
+		<properties>
+			<sonar.organization>eco-transport</sonar.organization>
+			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		</properties>
+	</properties>
+
 </project>
